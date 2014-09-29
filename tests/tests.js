@@ -53,9 +53,18 @@
 		// make sure the placeholder property works as expected.
 		strictEqual($el.prop('placeholder'), placeholder, '$el.prop(`placeholder`) should return the placeholder value');
 		$el.prop('placeholder', 'new placeholder');
-		strictEqual($el.prop('placeholder'), 'new placeholder', '$el.prop(`placeholder`, <string>) should set the placeholder value');
-		strictEqual($el.value, 'new placeholder', '$el.prop(`placeholder`, <string>) should update the displayed placeholder value');
+		strictEqual($el.prop('placeholder'), 'new placeholder', '$el.prop(`placeholder`, <string>) should set the placeholder prop');
+		strictEqual($el.attr('placeholder'), 'new placeholder', '$el.prop(`placeholder`, <string>) should set the placeholder attr');
+		strictEqual(el.value, 'new placeholder', '$el.prop(`placeholder`, <string>) should update the displayed placeholder value');
 		$el.prop('placeholder', placeholder);
+
+		// make sure the placeholder attribute works as expected.
+		strictEqual($el.attr('placeholder'), placeholder, '$el.attr(`placeholder`) should return the placeholder value');
+		$el.attr('placeholder', 'new placeholder');
+		strictEqual($el.prop('placeholder'), 'new placeholder', '$el.attr(`placeholder`, <string>) should set the placeholder prop');
+		strictEqual($el.attr('placeholder'), 'new placeholder', '$el.attr(`placeholder`, <string>) should set the placeholder attr');
+		strictEqual(el.value, 'new placeholder', '$el.attr(`placeholder`, <string>) should update the displayed placeholder value');
+		$el.attr('placeholder', placeholder);
 	};
 
 	test('emulates placeholder for <input type=text>', function() {

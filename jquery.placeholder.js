@@ -8,6 +8,7 @@
 	var prototype = $.fn;
 	var valHooks = $.valHooks;
 	var propHooks = $.propHooks;
+	var attrHooks = $.attrHooks;
 	var hooks;
 	var placeholder;
 
@@ -85,6 +86,23 @@
 			valHooks.textarea = hooks;
 			propHooks.value = hooks;
 		}
+
+		attrHooks.placeholder = propHooks.placeholder = {
+			'set': function(element, value) {
+				//Update both the attribute/property
+				element.setAttribute('placeholder', element.placeholder = value);
+
+				if ($(element).hasClass('placeholder')) {
+					element.value = value;
+				}
+
+				//return true so jQuery doesn't also set the attribute/property
+				return true;
+			},
+			'get': function(element) {
+				return element.getAttribute('placeholder');
+			}
+		};
 
 		$(function() {
 			// Look for forms

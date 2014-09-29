@@ -50,6 +50,12 @@
 		strictEqual(el.value, placeholder, '`$el.val("")` should change the `value` attribute');
 		ok($el.hasClass('placeholder'), '`$el.val("")` should re-enable `placeholder` class');
 
+		// and blur it again to test blur without a focus
+		$el.blur();
+		strictEqual($el.prop('value'), '', '`$el.val("")` should change the `value` property');
+		strictEqual(el.value, placeholder, '`$el.val("")` should change the `value` attribute');
+		ok($el.hasClass('placeholder'), '`$el.val("")` should re-enable `placeholder` class');
+
 		// make sure the placeholder property works as expected.
 		strictEqual($el.prop('placeholder'), placeholder, '$el.prop(`placeholder`) should return the placeholder value');
 		$el.prop('placeholder', 'new placeholder');

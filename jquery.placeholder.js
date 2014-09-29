@@ -160,8 +160,8 @@
 		var input = this;
 		var $input = $(input);
 		var id = this.id;
-		if (input.value == '') {
-			if (input.type == 'password') {
+		if (input.value === '' || (input.type !== 'password' && input.value === input.placeholder)) {
+			if (input.type === 'password') {
 				if (!$input.data('placeholder-textinput')) {
 					try {
 						$replacement = $input.clone().attr({ 'type': 'text' });
@@ -187,8 +187,6 @@
 			}
 			$input.addClass('placeholder');
 			$input[0].value = $input.attr('placeholder');
-		} else {
-			$input.removeClass('placeholder');
 		}
 	}
 

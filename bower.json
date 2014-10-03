@@ -1,5 +1,5 @@
 {
 	"name": "jquery-placeholder",
-	"version": "2.0.8-allocadia.2",
+	"version": "2.0.8-allocadia.3",
 	"main": ["jquery.placeholder.js"]
 }

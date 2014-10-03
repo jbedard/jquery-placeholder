@@ -80,11 +80,11 @@
 
 		if (!isInputSupported) {
 			valHooks.input = hooks;
-			propHooks.value = hooks;
+			propHooks.value = attrHooks.value = hooks;
 		}
 		if (!isTextareaSupported) {
 			valHooks.textarea = hooks;
-			propHooks.value = hooks;
+			propHooks.value = attrHooks.value = hooks;
 		}
 
 		attrHooks.placeholder = propHooks.placeholder = {
